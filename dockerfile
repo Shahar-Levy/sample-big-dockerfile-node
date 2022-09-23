@@ -1,5 +1,5 @@
 FROM node:8.16
-WORKDIR /usr/src/app
+WORKDIR /
 RUN yarn
 COPY . ./
 RUN yarn build
@@ -14,6 +14,6 @@ RUN apt-get install -y \
   mercurial \
   subversion 
 
-COPY /usr/src/app/build /usr/share/nginx/html
+COPY /build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
